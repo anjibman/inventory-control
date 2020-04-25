@@ -1,0 +1,13 @@
+.table-header {
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem 0;
+}
+
+.search-bar {
+	width: 25%
+}
+
+.table td, .table th {
+	padding: 0 0.5rem;
+}
