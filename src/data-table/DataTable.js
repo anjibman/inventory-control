@@ -37,7 +37,7 @@ const DataTable = () => {
     );
 
     const handlePageSizeChange = (pageSize) => {
-        setPageSize(pageSize);
+        setPageSize(pageSize === 'All' ? data.length : pageSize);
     };
 
     const handlePaginationChange = (currentPage) => {
