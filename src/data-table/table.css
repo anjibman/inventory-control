@@ -1,4 +1,4 @@
-.table-header {
+.table-top, .table-bottom {
 	display: flex;
 	justify-content: space-between;
 	margin: 1rem 0;

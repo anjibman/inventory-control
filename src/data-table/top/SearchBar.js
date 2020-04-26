@@ -1,7 +1,9 @@
+// Unpublished Work (c) 2020 Deere & Company
+
 import React from 'react';
 import {FormControl} from 'react-bootstrap';
 
-import './components.css';
+import '../components.css';
 
 function SearchBar(props) {
     return (

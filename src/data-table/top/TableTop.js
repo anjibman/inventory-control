@@ -1,13 +1,15 @@
+// Unpublished Work (c) 2020 Deere & Company
+
 import React from 'react';
-import LengthSelector from '../components/LengthSelector';
-import SearchBar from '../components/SearchBar';
+import LengthSelector from './LengthSelector';
+import SearchBar from './SearchBar';
 
 function TableTop(props) {
     return (
-        <header className='table-header'>
+        <div className='table-top'>
             <LengthSelector/>
             <SearchBar/>
-        </header>
+        </div>
     )
 }
 

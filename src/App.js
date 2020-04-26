@@ -1,10 +1,10 @@
 import React from 'react';
-import SupplierTable from './supplier/supplier-table';
+import DataTable from './data-table/DataTable';
 
 function App() {
     return (
         <div className="App">
-            <SupplierTable/>
+            <DataTable/>
         </div>
     );
 }
