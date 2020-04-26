@@ -14,9 +14,9 @@ function TableData(props) {
             <TableHead columns={props.columns}/>
             <TableBody
                 columns={props.columns}
-                currentPage={props.currentPage}
+                startIndex={props.startIndex}
                 data={props.data}
-                pageSize={props.pageSize}
+                endIndex={props.endIndex}
             />
         </Table>
     );
@@ -24,10 +24,9 @@ function TableData(props) {
 
 TableData.propTypes = {
     columns: PropTypes.array.isRequired,
-    currentPage: PropTypes.string.isRequired,
     data: PropTypes.array.isRequired,
-    pageStart: PropTypes.string.isRequired,
-    total: PropTypes.string.isRequired
+    startIndex: PropTypes.string.isRequired,
+    endIndex: PropTypes.string.isRequired
 };
 
 export default TableData;

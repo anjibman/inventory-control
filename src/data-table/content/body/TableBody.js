@@ -5,16 +5,12 @@ import TableBodyRow from './TableBodyRow';
 import * as PropTypes from 'prop-types';
 
 function TableBody(props) {
-    const { columns, pageSize, currentPage, data} = props;
-    const numPages = Math.ceil(data.length / pageSize);
-    const isLastPage = currentPage === numPages;
-    const end =  isLastPage ? data.length : pageSize * currentPage;
-    const start = (currentPage - 1) * pageSize;
+    const { columns, startIndex, endIndex, data} = props;
 
     return (
         <tbody>
         {
-            data.slice(start, end).map((supplier) => {
+            data.slice(startIndex, endIndex).map((supplier) => {
                 return <TableBodyRow columns={columns} rowData={supplier} />;
             })
         }
@@ -24,9 +20,9 @@ function TableBody(props) {
 
 TableBody.propTypes = {
     columns: PropTypes.array.isRequired,
-    currentPage: PropTypes.string.isRequired,
+    start: PropTypes.string.isRequired,
     data: PropTypes.array.isRequired,
-    pageStart: PropTypes.string.isRequired
+    end: PropTypes.string.isRequired
 };
 
 export default TableBody;

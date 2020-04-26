@@ -1,15 +1,15 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
 
-function TableInfo({pageStart, pageEnd, total}) {
+function TableInfo({startIndex, endIndex, total}) {
     return (
-        <p>{`Showing ${pageStart} to ${pageEnd} of ${total} entries`}</p>
+        <p>{`Showing ${startIndex + 1} to ${endIndex} of ${total} entries`}</p>
     )
 }
 
 TableInfo.propTypes = {
-    pageStart: PropTypes.string.isRequired,
-    pageEnd: PropTypes.string.isRequired,
+    endIndex: PropTypes.string.isRequired,
+    startIndex: PropTypes.string.isRequired,
     total: PropTypes.string.isRequired
 };
 

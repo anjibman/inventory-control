@@ -16,6 +16,13 @@ const DataTable = () => {
     const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
     const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE);
 
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = () => {
+        const numPages = Math.ceil(data.length / pageSize);
+        const isLastPage = currentPage === numPages;
+        return isLastPage ? data.length : pageSize * currentPage;
+    };
+
     const data = React.useMemo(
         () => suppliers,
         []
@@ -50,14 +57,15 @@ const DataTable = () => {
             <TableTop pageSizeHandler={handlePageSizeChange} pageSize={pageSize}/>
             <TableContent
                 columns={columns}
-                currentPage={currentPage}
                 data={data}
-                pageSize={pageSize}
+                startIndex={startIndex}
+                endIndex={endIndex()}
             />
             <TableBottom
-                pageSize={pageSize}
-                total={data.length}
+                endIndex={endIndex()}
                 paginationHandler={handlePaginationChange}
+                startIndex={startIndex}
+                total={data.length}
             />
         </div>
     );

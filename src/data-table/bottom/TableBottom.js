@@ -9,7 +9,11 @@ import TableBody from '../content/body/TableBody';
 function TableBottom(props) {
     return (
         <div className='table-bottom'>
-            <TableInfo/>
+            <TableInfo
+                endIndex={props.endIndex}
+                startIndex={props.startIndex}
+                total={props.total}
+            />
             <PaginationBar
                 pageSize={props.pageSize}
                 total={props.total}
@@ -20,7 +24,10 @@ function TableBottom(props) {
 }
 
 TableBottom.propTypes = {
-    paginationHandler: PropTypes.func.isRequired
+    endIndex: PropTypes.string.isRequired,
+    paginationHandler: PropTypes.func.isRequired,
+    startIndex: PropTypes.string.isRequired,
+    total: PropTypes.string.isRequired
 };
 
 export default TableBottom;
