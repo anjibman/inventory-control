@@ -1,7 +1,9 @@
 /* Length Selector Component */
-/*.length-dropdown {*/
-/*	float: left;*/
-/*}*/
+.length-dropdown {
+	> button {
+		min-width: 4rem;
+	}
+}
 
 /*.filter-group {*/
 /*	float: right;*/

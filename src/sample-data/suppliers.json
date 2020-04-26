@@ -1128,18 +1128,6 @@
     "website": "www.VitaeRisus.com"
   },
   {
-    "id": "FD30DF44-5F12-69B8-F2CC-F0AD6586C04D",
-    "code": 95,
-    "name": "Et Consulting",
-    "street": "3601 Vestibulum Rd.",
-    "city": "Lafayette",
-    "state": "LA",
-    "zipCode": "18421",
-    "phoneNumber": "856-970-5987",
-    "email": "Duis.mi@sociisnatoque.net",
-    "website": "www.EratCompany.com"
-  },
-  {
     "id": "FFA53808-9BF7-F8B2-143C-25F29990A4CD",
     "code": 96,
     "name": "Vestibulum Corp.",
@@ -1186,17 +1174,5 @@
     "phoneNumber": "724-234-8283",
     "email": "vel.nisl@egettinciduntdui.co.uk",
     "website": "www.ProinCompany.com"
-  },
-  {
-    "id": "B7B5425F-3F26-9C9F-D6FC-452693CB73EE",
-    "code": 100,
-    "name": "At Lacus Company",
-    "street": "2845 Parturient Road",
-    "city": "Rutland",
-    "state": "VT",
-    "zipCode": "30574",
-    "phoneNumber": "976-334-4487",
-    "email": "purus.mauris@senectus.ca",
-    "website": "www.DonecLimited.com"
   }
 ]

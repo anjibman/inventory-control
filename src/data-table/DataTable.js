@@ -4,14 +4,17 @@ import React, {useState} from 'react';
 import suppliers from '../sample-data/suppliers';
 
 import '../supplier/supplier.css';
-import TableData from './content/TableContent';
+import TableContent from './content/TableContent';
 import TableTop from './top/TableTop';
 import TableBottom from './bottom/TableBottom';
-import TableContent from './content/TableContent';
+import TableBody from './content/body/TableBody';
 
 const DataTable = () => {
-    const DEFAULT_PAGE_SIZE = 5;
+    const DEFAULT_PAGE_SIZE = 20;
+    const DEFAULT_PAGE = 1;
+
     const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
+    const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE);
 
     const data = React.useMemo(
         () => suppliers,
@@ -33,12 +36,29 @@ const DataTable = () => {
         []
     );
 
+    const handlePageSizeChange = (pageSize) => {
+        setPageSize(pageSize);
+    };
+
+    const handlePaginationChange = (currentPage) => {
+        setCurrentPage(currentPage);
+    };
+
     return (
         <div className='supplier-container'>
-            <h1>Supplier List</h1>
-            <TableTop/>
-            <TableContent columns={columns} data={data}/>
-            <TableBottom/>
+            <h4>Supplier List</h4>
+            <TableTop pageSizeHandler={handlePageSizeChange} pageSize={pageSize}/>
+            <TableContent
+                columns={columns}
+                currentPage={currentPage}
+                data={data}
+                pageSize={pageSize}
+            />
+            <TableBottom
+                pageSize={pageSize}
+                total={data.length}
+                paginationHandler={handlePaginationChange}
+            />
         </div>
     );
 };
