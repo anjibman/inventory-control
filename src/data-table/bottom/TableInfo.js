@@ -8,9 +8,9 @@ function TableInfo({startIndex, endIndex, total}) {
 }
 
 TableInfo.propTypes = {
-    endIndex: PropTypes.string.isRequired,
-    startIndex: PropTypes.string.isRequired,
-    total: PropTypes.string.isRequired
+    endIndex: PropTypes.number.isRequired,
+    startIndex: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired
 };
 
 export default TableInfo;

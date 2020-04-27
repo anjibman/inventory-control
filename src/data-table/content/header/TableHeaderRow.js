@@ -8,7 +8,7 @@ function TableHeaderRow(props) {
         <tr>
             {
                 props.columns.map((column) => {
-                    return <TableColumnHeading className='center' columnHeading={column.header}/>;
+                    return <TableColumnHeading key={`header-${column.header}`} className='center' columnHeading={column.header}/>;
                 })
             }
         </tr>

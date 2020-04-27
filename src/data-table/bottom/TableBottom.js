@@ -4,7 +4,6 @@ import React from 'react';
 import * as PropTypes from 'prop-types';
 import TableInfo from './TableInfo';
 import PaginationBar from './PaginationBar';
-import TableBody from '../content/body/TableBody';
 
 function TableBottom(props) {
     return (
@@ -15,19 +14,21 @@ function TableBottom(props) {
                 total={props.total}
             />
             <PaginationBar
+                numPages={props.numPages}
                 pageSize={props.pageSize}
-                total={props.total}
                 paginationHandler={props.paginationHandler}
+                total={props.total}
             />
         </div>
     )
 }
 
 TableBottom.propTypes = {
-    endIndex: PropTypes.string.isRequired,
+    endIndex: PropTypes.number.isRequired,
+    numPages: PropTypes.number.isRequired,
     paginationHandler: PropTypes.func.isRequired,
-    startIndex: PropTypes.string.isRequired,
-    total: PropTypes.string.isRequired
+    startIndex: PropTypes.number.isRequired,
+    total: PropTypes.number.isRequired
 };
 
 export default TableBottom;

@@ -11,7 +11,7 @@ function TableBody(props) {
         <tbody>
         {
             data.slice(startIndex, endIndex).map((supplier) => {
-                return <TableBodyRow columns={columns} rowData={supplier} />;
+                return <TableBodyRow key={`row-${supplier.id}`} columns={columns} rowData={supplier} />;
             })
         }
         </tbody>
@@ -20,9 +20,9 @@ function TableBody(props) {
 
 TableBody.propTypes = {
     columns: PropTypes.array.isRequired,
-    start: PropTypes.string.isRequired,
+    startIndex: PropTypes.number.isRequired,
     data: PropTypes.array.isRequired,
-    end: PropTypes.string.isRequired
+    endIndex: PropTypes.number.isRequired
 };
 
 export default TableBody;

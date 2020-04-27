@@ -5,7 +5,7 @@ function TableBodyRow(props) {
         <tr>
             {
                 props.columns.map((col) => {
-                    return <td>{props.rowData[col.field]}</td>
+                    return <td key={`col-${props.rowData[col.id]}-${col.field}`}>{props.rowData[col.field]}</td>
                 })
             }
         </tr>

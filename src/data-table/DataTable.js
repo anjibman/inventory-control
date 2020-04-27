@@ -7,7 +7,6 @@ import '../supplier/supplier.css';
 import TableContent from './content/TableContent';
 import TableTop from './top/TableTop';
 import TableBottom from './bottom/TableBottom';
-import TableBody from './content/body/TableBody';
 
 const DataTable = () => {
     const DEFAULT_PAGE_SIZE = 20;
@@ -16,17 +15,17 @@ const DataTable = () => {
     const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
     const [currentPage, setCurrentPage] = useState(DEFAULT_PAGE);
 
-    const startIndex = (currentPage - 1) * pageSize;
-    const endIndex = () => {
-        const numPages = Math.ceil(data.length / pageSize);
-        const isLastPage = currentPage === numPages;
-        return isLastPage ? data.length : pageSize * currentPage;
-    };
-
     const data = React.useMemo(
         () => suppliers,
         []
     );
+
+    const numPages = Math.ceil(data.length / pageSize);
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = () => {
+        const isLastPage = currentPage === numPages;
+        return isLastPage ? data.length : pageSize * currentPage;
+    };
 
     const columns = React.useMemo(
         () => [
@@ -44,6 +43,7 @@ const DataTable = () => {
     );
 
     const handlePageSizeChange = (pageSize) => {
+        setCurrentPage(DEFAULT_PAGE);
         setPageSize(pageSize === 'All' ? data.length : pageSize);
     };
 
@@ -63,6 +63,7 @@ const DataTable = () => {
             />
             <TableBottom
                 endIndex={endIndex()}
+                numPages={numPages}
                 paginationHandler={handlePaginationChange}
                 startIndex={startIndex}
                 total={data.length}

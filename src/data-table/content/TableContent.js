@@ -8,7 +8,7 @@ import {Table} from 'react-bootstrap';
 import '../table.css';
 import * as PropTypes from 'prop-types';
 
-function TableData(props) {
+function TableContent(props) {
     return (
         <Table responsive striped bordered hover>
             <TableHead columns={props.columns}/>
@@ -22,11 +22,11 @@ function TableData(props) {
     );
 }
 
-TableData.propTypes = {
+TableContent.propTypes = {
     columns: PropTypes.array.isRequired,
     data: PropTypes.array.isRequired,
-    startIndex: PropTypes.string.isRequired,
-    endIndex: PropTypes.string.isRequired
+    endIndex: PropTypes.number.isRequired,
+    startIndex: PropTypes.number.isRequired
 };
 
-export default TableData;
+export default TableContent;
