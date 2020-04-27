@@ -9,12 +9,12 @@ function TableBottom(props) {
     return (
         <div className='table-bottom'>
             <TableInfo
-                endIndex={props.endIndex}
-                startIndex={props.startIndex}
+                currentPage={props.currentPage}
+                pageSize={props.pageSize}
                 total={props.total}
             />
             <PaginationBar
-                numPages={props.numPages}
+                currentPage={props.currentPage}
                 pageSize={props.pageSize}
                 paginationHandler={props.paginationHandler}
                 total={props.total}
@@ -24,10 +24,9 @@ function TableBottom(props) {
 }
 
 TableBottom.propTypes = {
-    endIndex: PropTypes.number.isRequired,
-    numPages: PropTypes.number.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    pageSize: PropTypes.number.isRequired,
     paginationHandler: PropTypes.func.isRequired,
-    startIndex: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
 };
 

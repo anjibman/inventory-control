@@ -14,9 +14,9 @@ function TableContent(props) {
             <TableHead columns={props.columns}/>
             <TableBody
                 columns={props.columns}
-                startIndex={props.startIndex}
+                currentPage={props.currentPage}
                 data={props.data}
-                endIndex={props.endIndex}
+                pageSize={props.pageSize}
             />
         </Table>
     );
@@ -24,9 +24,9 @@ function TableContent(props) {
 
 TableContent.propTypes = {
     columns: PropTypes.array.isRequired,
+    currentPage: PropTypes.number.isRequired,
     data: PropTypes.array.isRequired,
-    endIndex: PropTypes.number.isRequired,
-    startIndex: PropTypes.number.isRequired
+    pageSize: PropTypes.number.isRequired
 };
 
 export default TableContent;

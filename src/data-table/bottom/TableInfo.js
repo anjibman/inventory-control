@@ -1,15 +1,16 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
+import {getEndIndex, getStartIndex} from '../util';
 
-function TableInfo({startIndex, endIndex, total}) {
+function TableInfo({currentPage, pageSize, total}) {
     return (
-        <p>{`Showing ${startIndex + 1} to ${endIndex} of ${total} entries`}</p>
-    )
+        <p>{`Showing ${getStartIndex(currentPage, pageSize) + 1} to ${getEndIndex(total, currentPage, pageSize)} of ${total} entries`}</p>
+    );
 }
 
 TableInfo.propTypes = {
-    endIndex: PropTypes.number.isRequired,
-    startIndex: PropTypes.number.isRequired,
+    currentPage: PropTypes.number.isRequired,
+    pageSize: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired
 };
 

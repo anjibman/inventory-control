@@ -3,26 +3,28 @@
 import React from 'react';
 import TableBodyRow from './TableBodyRow';
 import * as PropTypes from 'prop-types';
+import {getEndIndex, getStartIndex} from '../../util';
 
 function TableBody(props) {
-    const { columns, startIndex, endIndex, data} = props;
+    const {columns, currentPage, data, pageSize} = props;
 
     return (
         <tbody>
         {
-            data.slice(startIndex, endIndex).map((supplier) => {
-                return <TableBodyRow key={`row-${supplier.id}`} columns={columns} rowData={supplier} />;
-            })
+            data.slice(getStartIndex(currentPage, pageSize), getEndIndex(data.length, currentPage, pageSize))
+                .map((supplier) => {
+                    return <TableBodyRow key={`row-${supplier.id}`} columns={columns} rowData={supplier}/>;
+                })
         }
         </tbody>
-    )
+    );
 }
 
 TableBody.propTypes = {
     columns: PropTypes.array.isRequired,
-    startIndex: PropTypes.number.isRequired,
+    currentPage: PropTypes.number.isRequired,
     data: PropTypes.array.isRequired,
-    endIndex: PropTypes.number.isRequired
+    pageSize: PropTypes.number.isRequired
 };
 
 export default TableBody;

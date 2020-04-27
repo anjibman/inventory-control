@@ -3,12 +3,13 @@
 import React, {useState} from 'react';
 import * as PropTypes from 'prop-types';
 import {Pagination} from 'react-bootstrap';
+import {getNumberOfPages} from '../util';
 
 function PaginationBar(props) {
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(props.currentPage);
 
     const disablePrev = currentPage === 1;
-    const disableNext = currentPage === props.numPages;
+    const disableNext = currentPage === getNumberOfPages(props.total, props.pageSize );
 
     const handlePrev = () => {
         const newPageNum = currentPage - 1;
@@ -31,6 +32,7 @@ function PaginationBar(props) {
 }
 
 PaginationBar.propType = {
+    currentPage: PropTypes.string.isRequired,
     numPages: PropTypes.string.isRequired,
     pageSize: PropTypes.string.isRequired,
     paginationHandler: PropTypes.func.isRequired,

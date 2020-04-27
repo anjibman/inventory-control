@@ -20,13 +20,6 @@ const DataTable = () => {
         []
     );
 
-    const numPages = Math.ceil(data.length / pageSize);
-    const startIndex = (currentPage - 1) * pageSize;
-    const endIndex = () => {
-        const isLastPage = currentPage === numPages;
-        return isLastPage ? data.length : pageSize * currentPage;
-    };
-
     const columns = React.useMemo(
         () => [
             {field: 'code', header: 'ID'},
@@ -43,7 +36,7 @@ const DataTable = () => {
     );
 
     const handlePageSizeChange = (pageSize) => {
-        setCurrentPage(DEFAULT_PAGE);
+        // setCurrentPage(DEFAULT_PAGE); //TODO: Reset page on size change
         setPageSize(pageSize === 'All' ? data.length : pageSize);
     };
 
@@ -57,18 +50,18 @@ const DataTable = () => {
             <TableTop pageSizeHandler={handlePageSizeChange} pageSize={pageSize}/>
             <TableContent
                 columns={columns}
+                currentPage={currentPage}
                 data={data}
-                startIndex={startIndex}
-                endIndex={endIndex()}
+                pageSize={pageSize}
             />
             <TableBottom
-                endIndex={endIndex()}
-                numPages={numPages}
+                currentPage={currentPage}
+                pageSize={pageSize}
                 paginationHandler={handlePaginationChange}
-                startIndex={startIndex}
                 total={data.length}
             />
         </div>
+
     );
 };
 
