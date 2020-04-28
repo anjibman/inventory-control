@@ -1,26 +1,20 @@
 // Unpublished Work (c) 2020 Deere & Company
 
-import React, {useState} from 'react';
+import React from 'react';
 import * as PropTypes from 'prop-types';
 import {Pagination} from 'react-bootstrap';
 import {getNumberOfPages} from '../util';
 
 function PaginationBar(props) {
-    const [currentPage, setCurrentPage] = useState(props.currentPage);
-
-    const disablePrev = currentPage === 1;
-    const disableNext = currentPage === getNumberOfPages(props.total, props.pageSize );
+    const disablePrev = props.currentPage === 1;
+    const disableNext = props.currentPage === getNumberOfPages(props.total, props.pageSize );
 
     const handlePrev = () => {
-        const newPageNum = currentPage - 1;
-        setCurrentPage(newPageNum);
-        props.paginationHandler(newPageNum);
+        props.paginationHandler(props.currentPage - 1);
     };
 
     const handleNext = () => {
-        const newPageNum = currentPage + 1;
-        setCurrentPage(newPageNum);
-        props.paginationHandler(newPageNum);
+        props.paginationHandler(props.currentPage + 1);
     };
 
     return (

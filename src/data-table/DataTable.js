@@ -36,8 +36,8 @@ const DataTable = () => {
     );
 
     const handlePageSizeChange = (pageSize) => {
-        // setCurrentPage(DEFAULT_PAGE); //TODO: Reset page on size change
-        setPageSize(pageSize === 'All' ? data.length : pageSize);
+        setCurrentPage(DEFAULT_PAGE);
+        setPageSize(pageSize === 'All' ? parseInt(data.length, 10) : parseInt(pageSize, 10));
     };
 
     const handlePaginationChange = (currentPage) => {
