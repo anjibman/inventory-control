@@ -55,17 +55,6 @@ const DataTable = () => {
         setFilteredData(filteredData);
     };
 
-    function filterModel(providerList, searchTerms) {
-        if (searchTerms) {
-            var lowerTerms = searchTerms.toLowerCase();
-            return _.filter(providerList, function(pr) {
-                return JSON.stringify(pr).toLowerCase().indexOf(lowerTerms) > -1;
-            });
-        } else {
-            return providerList;
-        }
-    }
-
     return (
         <div className='supplier-container'>
             <h4>Supplier List</h4>
