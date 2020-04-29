@@ -9,13 +9,14 @@ function TableTop(props) {
     return (
         <div className='table-top'>
             <LengthSelector pageSizeHandler={props.pageSizeHandler} pageSize={props.pageSize}/>
-            <SearchBar/>
+            <SearchBar searchHandler={props.searchHandler}/>
         </div>
     )
 }
 
 TableTop.propTypes = {
-    pageSizeHandler: PropTypes.func.isRequired
+    pageSizeHandler: PropTypes.func.isRequired,
+    searchHandler: PropTypes.func.isRequired
 };
 
 export default TableTop;
